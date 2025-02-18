@@ -1,0 +1,75 @@
+How to boost Amazon listings to drive more sales: 9 tactics
+
+
+
+
+1. Optimize listings to rank in search results
+Amazon product listing optimization might sound intimidating, but there are multiple ways to approach it. And once you start optimizing, it can pay off in more ways than one.
+To begin with, you can help customers discover products and make informed purchase decisions by optimizing different parts of the product listing, such as the product title and description. Think about your industry and niche, then conduct audience research. For example, do customers prefer to click on short titles that are simple and to-the-point, or do they place more purchases when you include descriptive words? Here are a few tips:
+* While the title character limit for Amazon listings is 200 characters, we recommend 80 characters or fewer.
+* Amazon product description character limits vary by product category, so be sure to review category-specific guidance.
+* Regardless of category, aim to provide clear, informative titles and descriptions.
+To find out what content performs best, run split tests to see what converts. Use Amazon’s Manage Your Experiments split testing tool to compare two versions of content, such as title variations or photo options.
+You can also use search engine optimization to help products rank better in search results. With SEO, you include keywords strategically in product details to help a listing match relevant search terms and provide customers with the information they’re looking for. For example, if you’re selling an electronic device, then the customer might care about battery life or case color options. Weave in related keywords like these based on customer preferences and the unique attributes of the products you offer.
+2. Experiment with online advertising options
+Ecommerce offers unique advantages and choices when it comes to advertising products for sale. Explore a range of advertisements exclusively available to Amazon sellers, such as:
+* Sponsored Products: These ads are cost-per-click ad campaigns, meaning you don’t pay for them until someone clicks on an ad. Set up a campaign to advertise specific listings in Amazon shopping results pages and on product detail pages. You can choose to target specific keywords, or use similar products to match ads to customer searches. You can also choose automatic targeting to let Amazon match ads to relevant search terms and products. Products see an average of 50% lift in weekly ordered-units within the first year of launching a Sponsored Products campaign.
+* Sponsored Brands: Similar to Sponsored Products, these ads are available to Amazon sellers enrolled in Brand Registry. These cost-per-click product listing ads let you showcase your brand logo, a custom headline, and multiple products from your brand. Leverage Sponsored Brands to increase awareness of your brand overall while driving sales of specific products. Sponsored Brands ads also let you use video to capture customer attention, helping products stand out in shopping results.
+* Sponsored Display: If you meet the eligibility criteria, these campaigns are digital advertisements that can reach customers in the Amazon store as well as other websites and apps. Rather than relying on keywords, Sponsored Display campaigns use rich media and contextual signals to appeal to relevant audiences.
+You can also run your own marketing campaigns and earn a Brand Referral Bonus (10% of the sales price, on average) for directing traffic to Amazon listings. Sign up for Brand Registry and create an Amazon Ads account to get started with Amazon Attribution.
+3. Offer discounts to attract purchases
+Encourage sales by advertising a discount for products. Amazon Coupons let you offer either dollar or percentage-off discounts to customers by displaying a coupon badge in Amazon search results and on the Amazon coupons page.
+You can also expand your reach with Amazon Social Media Promo Codes for offering a percentage-off discount to customers on eligible products. Promo codes are shareable URLs you can use through social media channels and efforts like influencer marketing content. Offer a discount to help attract new customers—or encourage existing customers to revisit your selection.
+4. Earn quality reviews
+Product reviews can be a very powerful way to build trust with customers, answer questions, and encourage purchases. But it can be a challenge to get high quality product reviews—especially for new releases. You can enroll in the Amazon Vine program to provide free units to impactful Amazon reviewers in order to build up authentic reviews, signal trust to customers, and introduce them to new brands and products.
+5. Focus on fulfillment and shipping
+Shipping options can contribute to a customer’s decision to place a purchase—according to one study, 56% of abandoned carts were related to delivery concerns. Amazon customers can search for products and sort results by delivery speed. So, offer shipping at the fastest speeds and lowest rates possible to help listings stand out from the competition and cater to customers looking for the earliest delivery dates and best deals.
+You can fulfill products yourself, or enroll products in Fulfillment by Amazon so they become eligible for benefits like free, two-day shipping through Amazon Prime. With FBA, you ship products to Amazon fulfillment centers for storage. Then Amazon packs and ships orders and can even handle customer service or returns.
+6. Stay in stock
+Keeping inventory stocked to meet demand can help you boost and maintain a successful Amazon listing. Grabbing customer attention only helps when you have units available for them to purchase, so be sure to keep on top of inventory planning.
+If you sell across multiple channels, synchronize inventory to avoid going out of stock. You can also use the FBA Restock tool for inventory planning. It considers sales history, demand forecast, seasonality, and replenishment settings to provide custom recommendations.
+7. Reach customers in different regions
+If you’re based in the United States, you can create offers in Amazon’s Mexico and Canada stores using Remote Fulfillment with FBA. When a customer makes a purchase, Amazon can fulfill the order using inventory you’ve sent to U.S. fulfillment centers for storage. Start with inventory you’re already using for FBA, or enroll new products and start sending them to Amazon.
+8. Tinker with prices to get more clicks
+Keep prices competitive to help your business scale. Amazon’s Automate Pricing tool lets you automatically adjust product prices in response to changes in demand, and even Featured Offer pricing. For instance, you can create a rule to keep a product $0.10 below the current Featured Offer price, or $1.00 above the lowest price for the same product using the same fulfillment channel.
+9. Enhance the shopping experience with A+ Content
+You can add A+ Content to listings to vividly showcase product qualities, your brand’s story, and other information that can help inspire customers to click. A+ Content appears on the product detail page and has modules for rich text, imagery, comparison charts, and more. Boost sales by adding branded content, videos, and other engaging features to show products in use.
+Boost sales with Amazon listing optimization
+Once you’ve built an Amazon storefront and created product listings, consider strategies for growth. You can start with tweaking product titles and product descriptions, try different forms of ecommerce advertising, and use tools like MYE to track sales and see what’s working. Make the most of Amazon resources like Automate Pricing and A+ Content to find out what works best for your business.
+
+
+FAQ: How to boost your Amazon listing
+Q:
+How can I boost my Amazon listing?
+A:
+The best way to boost Amazon listings depends on factors like the types of products you’re selling and your business goals, but generally speaking, there are a variety of ways to boost Amazon listings and encourage sales growth, such as:
+* Optimizing listings using SEO, split testing, and A+ Content
+* Advertising listings with digital ads like Sponsored Products and Sponsored Brands
+* Running marketing campaigns and using Amazon Attribution to drive traffic
+* Building social proof in the form of Amazon Vine reviews
+* Tapping into different pools of customers around the globe
+You can also focus on other ways to improve the shopping experience and cater to customer needs, such as providing fast, free shipping, experimenting with prices, and managing inventory to increase your chances of getting products in the Featured Offer position.
+
+
+Q:
+What is Amazon product listing optimization?
+A:
+Product listing optimization is the process of editing and curating a product’s listing details to best describe and showcase a product. Optimizing listings helps them show up with better placement in search results, and can help increase conversion by giving customers details about a product’s benefits.
+
+
+Q:
+Does A+ Content increase sales in the Amazon store?
+A:
+Internal Amazon data has shown that adding A+ Content to your product listings can help increase sales by an average of 5.6%.
+
+
+Q:
+Where do Amazon Sponsored Product ads appear?
+A:
+Amazon Sponsored ads can appear in a variety of placements depending on the specific ad-type and targeting strategy you choose. Sponsored Products ads can appear within shopping results pages and on product detail pages. Sponsored Brands ads appear in shopping results pages, and Sponsored Display ads can appear in a variety of placements both on and off the Amazon store.
+
+
+Q:
+How do I set up Automated Pricing in the Amazon store?
+A:
+To set up Automate Pricing for Amazon listings, you first choose the pricing rule you’d like to assign products to, either a pre-defined rule, or a custom pricing rule you create yourself. Next, you set a minimum and maximum range for your price to stay within, then choose the products you want to reprice and assign them to the rule.

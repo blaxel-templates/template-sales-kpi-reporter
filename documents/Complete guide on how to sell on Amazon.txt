@@ -1,0 +1,215 @@
+Complete guide on how to sell on Amazon 
+
+
+
+
+
+
+Why sell on Amazon?
+Amazon is one of the most trusted brands in the US. We work hard to provide every customer with what they need when they need it—and we’re excited every time a new seller joins our community.
+Why do independent sellers choose Amazon?
+Independent sellers choose Amazon because they get to sell in a store that more customers trust—and they get to do it with higher-impact tools and programs that simplify their business and cost less than alternatives.
+
+
+How to sell on Amazon for beginners (step-by-step tutorial)
+Learn about steps involved in your journey for selling your product on the Amazon store.
+
+
+
+Get ready to sell
+Choose a selling plan
+We offer two selling plans so you can choose the right package of tools and services for the right price.
+* The Individual selling plan costs $0.99 per sale.
+* The Professional selling plan costs $39.99 per month, no matter how many items you sell.
+Amazon also collects a referral fee on each item sold, and other selling fees can apply in some cases. Some optional tools and programs involve added costs.
+
+
+Create and configure your Seller Central account
+After choosing your selling plan, you’ll register with Amazon and create a Seller Central account.
+
+
+Once you’ve registered, you’ll want to configure your Seller Central account for your business. Make sure you review the following:
+* Public seller profile
+* Payment and business information
+* Shipping and returns settings
+* Tax information and settings
+* Notification preferences
+* Login settings
+* User permissions
+Consider adding other users to your selling account if you’d like help with certain tasks.
+
+
+
+Configure your Amazon Seller Central account
+Find out how to configure settings for your Seller Central account, and how to complete or update your account information.
+After configuring your Seller Central account, you can use it to list and price products, manage your inventory, and fulfill customer orders.
+Want to manage your account on the go?
+
+
+Enroll your brand
+If you’re the rights owner for an eligible brand, we recommend enrolling it in Amazon Brand Registry before you list your products. Brand Registry is free and provides sellers with a suite of additional selling benefits and protection tools like A+ Content, Manage Your Experiments, and Brand Analytics.
+
+
+The product detail page is where customers find all relevant information about an item. When multiple sellers offer the same product, Amazon combines their offers on one product detail page to make it easier for customers to find, compare, and purchase items.
+
+
+1.
+Title
+200 characters max, capitalize the first letter of every word
+2.
+Images
+500 x 500 or 1,000 x 1,000 pixels to increase listing quality
+3.
+Variations
+Such as different colors, scents, or sizes
+4.
+Bullet points
+Short, descriptive sentences highlighting key features and benefits
+5.
+Featured Offer (formerly "Buy Box")
+The Featured Offer on a detail page.
+6.
+Other offers
+The same product sold by multiple sellers offering a different price, shipping options, etc.
+7.
+Description
+Keywords improve the chances that people will find your listing
+
+
+
+Intro to product detail pages
+Learn what a product detail page is and who can create, suggest updates, and match offers to one. Learn best practices for each key element of a product detail page in the Amazon store.
+
+
+
+Make sure your products are safe and compliant
+Products offered for sale in the Amazon store must comply with all laws and regulations, as well as Amazon policies. Before you start the listing process, make sure you understand our Product safety and Restricted products policies.
+
+
+If you want to ship orders through Fulfillment by Amazon (FBA), be sure to also review specific FBA product restrictions.
+
+
+Match or create a product listing
+If the product you want to sell is already in the Amazon store, in most cases you can use its product ID, or GTIN, to match an offer to the existing product detail page. If a product isn’t already in the Amazon store, you’ll need to create a new product detail page.
+
+
+All sellers can match or create product listings one at a time. Professional sellers can also match or create product listings in bulk.
+
+
+Your ability to list a product in the Amazon store can depend on its category, condition, and brand. In some cases, you’ll need to apply to sell a product, category, or brand.
+
+
+
+Intro to listing products in the Amazon store
+Learn what you need before you list products and how to match offers and create product detail pages both one at a time and in bulk.
+Product categories
+Product category
+Example products
+Conditions allowed
+Categories without restrictions
+Categories with restrictions
+
+
+Branded products
+If a product is part of a brand enrolled in Amazon Brand Registry, only three types of sellers can create its product detail page using our standard listing processes:
+* The original rights owner who enrolled the brand
+* Other sellers directly employed by the brand
+* Third-party resellers who’ve been associated with the brand
+After a product is listed by one of the above sellers, others sellers can match offers to its product detail page. They may be prompted to complete a brand selling application first.
+
+
+Before you set prices for your products, you’ll want to get familiar with key concepts we use to organize and support pricing in the Amazon store.
+* Competitive external price: The lowest price for an item from major retailers outside Amazon. We share competitive external prices with sellers. For your own price to be considered competitive, your standard item price, plus shipping, must be less than or equal to the competitive external price.
+* Featured Offer: The offer a customer often sees this near the top of a product detail page with Buy Now and Add to Cart buttons. To compete for the Featured Offer, a seller must set a competitive price and have a Professional selling plan. The product also needs to be in new condition.
+* Lowest Amazon price: The lowest price currently offered by a seller in the Amazon store. We share the current lowest Amazon price to give sellers who list a product to the opportunity to match or beat it.
+Want to optimize your prices? Learn how the Automate Pricing tool can help you become the Featured Offer for a product.
+
+
+
+Intro to pricing products in the Amazon store
+Find out what a competitive price, lowest price, and Featured Offer are. Get an overview of how sellers set static prices and apply dynamic pricing rules to their products.
+Select your fulfillment method
+You have two basic options for getting customers their stuff:
+* You can fulfill orders yourself, maintaining your own inventory and shipping products directly to customers. We call this Fulfilled by Merchant.
+* You can send your inventory to Amazon and have us pick, pack, and deliver products through Fulfillment by Amazon (FBA). FBA also takes care of customer service and returns.
+Each method has its own benefits—and you can decide which one is right for each product you sell. You can also use our Revenue Calculator to compare estimates for FBA and your own fulfillment method.
+
+
+
+Introduction on How to Ship Products on Your Own
+In this video you will get an overview on merchant fulfilled shipping, guidelines on packaging, understand your shipping / cancellation metrics, guidelines to maintain positive customer experience.
+
+
+
+Get started with FBA
+Use FBA to offer Prime shipping to your customers and have Amazon pick, pack, and ship orders on your behalf. In this video, you’ll learn how FBA works and where to access additional FBA tools and resources.
+Monitor your performance
+Our Account Health dashboard provides an overview of your account’s adherence to policies and various performance targets.
+Customer Service Performance
+Your customer-service performance is measured using what we call an Order Defect Rate (ODR). Your ODR is the percentage of your orders with one or more indicators of poor customer service.
+Account Health Rating
+We provide sellers an overview of their compliance with key Amazon selling policies. To maintain a healthy rating, make sure to address any policy violations listed on your Account Health dashboard.
+Shipping Performance
+You can use multiple metrics to help assess the health of the orders you fulfill directly:
+* Your late shipment rate (LSR) is the percentage of your seller-fulfilled orders that have a shipping confirmation after their expected shipping date.
+* Your pre-fulfillment cancel rate (CR) is the percentage of seller-fulfilled orders you cancel.
+* Your valid tracking rate (VTR) is the percentage of packages from your seller-fulfilled orders with a valid tracking number.
+* Your on-time delivery rate (OTDR) is the percentage of your tracked seller-fulfilled units that were delivered on or before the seller-promised "Deliver by" date.
+
+
+
+Promote and advertise products
+Use no-cost promotions and pay-per-click advertising to help your products and brands reach more customers.
+* Create coupons, promotion, deals and discounts that appear in the Amazon store.
+* Create sponsored ads that feature a single product or multiple products from your brand. Small businesses using Amazon Ads attributed 30% of sales to our ads.1
+Get product reviews
+After a customer buys a product, they can leave a public product review, a seller-feedback rating, or both. Try these tips to improve your chances of getting positive reviews and ratings:
+* Accurately represent a product on your product detail page.
+* Pack your products to help prevent damage during delivery.
+* Respond to customer messages within 24 hours.
+* Provide valid tracking numbers so customers can track their orders.
+Eligible brands can use tools like Amazon Vine to generate reviews for their products.
+
+
+Grow with tools and programs
+New Seller Guide
+Speed matters-and for Amazon sellers the first 90 days are especially critical. That's why we invented the New Seller Guide, a set of brand, logistics, pricing, and promotional services that are backed by data science and designed to fuel the growth of new sellers.
+Sellers who adopt services in the New Seller Guide can take advantage of over $50,000 in New Seller Incentives.
+
+
+More tools and programs
+Looking for more ways to reach customers, sell products, and make it easier to manage your business? Explore no-cost options and cost-effective tools and programs Amazon offers to help your business grow.
+
+
+
+
+Frequently asked questions
+
+
+Is it profitable to sell on Amazon?
+Selling with Amazon can be very profitable. In 2023, US-based sellers sold more than 4.5 billion items—an average of 8,600 items every minute. How profitable you are can also depend on what products you sell, your pricing, and your marketing strategies.
+
+
+What is needed to sell with Amazon?
+To start selling with Amazon, you need to create an Amazon selling account. Learn more in our seller registration guide.
+
+
+Is it free to be an Amazon seller?
+While it’s free to create an Amazon selling account, there are fees associated with selling. Amazon offers two selling plans: the Individual plan, which is $0.99 per item sold, and the Professional plan, which is $39.99 per month regardless of the number of items sold. In addition to selling plan fees, there is a referral fee on each item sold, and other selling costs may apply if you use certain optional tools and programs.
+
+
+How can I make money selling with Amazon?
+To make money with Amazon, first find products that will sell well. Attract customers with great product listings that include accurate descriptions and engaging photos. You can also use Amazon’s optional programs, like Fulfillment By Amazon (FBA) and Amazon Ads, to help optimize your selling.
+
+
+Learn more about making money with Amazon
+Can you be an individual Amazon seller?
+Absolutely, and you can choose whichever plan you prefer—the Individual or Professional plan—to suit your selling needs.
+
+
+Is Fulfillment by Amazon (FBA) worth it?
+Many sellers choose Amazon’s FBA program to outsource order fulfillment, shipping, customer service, and returns. The program can provide cost savings and offers fast, free shipping to Prime customers, which can help sellers attract more customers and grow their sales.
+
+
+Do you need an LLC to sell with Amazon?
+You don’t need to be an LLC or registered business, or be otherwise incorporated, to sell in the Amazon store. During seller registration, select None, I am an individual for your Business type, and we’ll update the registration process to collect relevant information.

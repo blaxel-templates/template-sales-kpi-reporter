@@ -1,0 +1,36 @@
+apiVersion: beamlit.com/v1alpha1
+kind: IntegrationConnection
+metadata:
+  name: openai
+spec:
+  integration: openai
+  secret:
+    apiKey: ${secrets.OPENAI_API_KEY}
+---
+apiVersion: beamlit.com/v1alpha1
+kind: Model
+metadata:
+  displayName: gpt-4o-mini
+  environment: production
+  name: gpt-4o-mini
+spec:
+  enabled: true
+  integrationConnections:
+    - openai
+  runtime:
+    model: gpt-4o-mini
+    type: openai
+---
+apiVersion: beamlit.com/v1alpha1
+kind: Model
+metadata:
+  displayName: text-embedding-3-large
+  environment: production
+  name: text-embedding-3-large
+spec:
+  enabled: true
+  integrationConnections:
+    - openai
+  runtime:
+    model: text-embedding-3-large
+    type: openai
