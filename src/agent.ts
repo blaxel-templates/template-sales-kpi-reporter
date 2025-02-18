@@ -11,8 +11,8 @@ import {
   getFunctions,
   logger,
   wrapAgent,
-} from "@beamlit/sdk";
-import { KnowledgebaseClass } from "@beamlit/sdk/knowledgebase/types.js";
+} from "@blaxel/sdk";
+import { KnowledgebaseClass } from "@blaxel/sdk/knowledgebase/types.js";
 import { BaseChatModel } from "@langchain/core/language_models/chat_models";
 import {
   BaseMessage,

@@ -1,4 +1,4 @@
-import { logger } from "@beamlit/sdk";
+import { logger } from "@blaxel/sdk";
 import { randomUUID } from "crypto";
 import fs from "fs/promises";
 import path from "path";

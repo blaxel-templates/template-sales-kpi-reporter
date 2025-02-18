@@ -1,15 +1,15 @@
 # Demo Sales KPI Reporter
 
-This repository is a demo implementation of a Sales KPI Reporter agent built using the [Beamlit SDK](https://beamlit.com) and [LangChain](https://langchain.com). The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in a Qdrant-based knowledge base.
+This repository is a demo implementation of a Sales KPI Reporter agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com). The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in a Qdrant-based knowledge base.
 
 ## Prerequisites
 
 - **Node.js:** v18 or later.
-- **Beamlit CLI:** Ensure you have the Beamlit CLI installed. If not, install it globally:
+- **Blaxel CLI:** Ensure you have the Blaxel CLI installed. If not, install it globally:
   ```bash
   curl -fsSL https://raw.githubusercontent.com/beamlit/toolkit/main/install.sh | BINDIR=$HOME/.local/bin sh
   ```
-- **Beamlit login:** Login to Beamlit platform
+- **Blaxel login:** Login to Blaxel platform
   ```bash
     bl login YOUR-WORKSPACE
   ```
@@ -64,7 +64,7 @@ When you are ready to deploy your application, run:
 bl deploy
 ```
 
-This command uses your code and the configuration files under the `.beamlit` directory to deploy your application.
+This command uses your code and the configuration files under the `.blaxel` directory to deploy your application.
 
 ## Project Structure
 
@@ -72,9 +72,10 @@ This command uses your code and the configuration files under the `.beamlit` dir
   - `agent.ts` - Configures the chat agent, streams HTTP responses, and integrates conversational context.
   - `knowledgebase.ts` - Establishes the connection and configuration for the Qdrant knowledge base.
   - `prompt.ts` - Contains the prompt definition used for the chat agent.
+  - `functions` - Directory to add your functions/tools available to your agent. Documentation on how to develop your own functions
 - **documents/** - Includes the sample documents to populate the knowledge base.
 - **fillKnowledgeBase.ts** - Script to import document content into the knowledge base.
-- **.beamlit/** - Contains configuration files for Beamlit functions and models.
+- **.blaxel/** - Contains configuration files for Blaxel functions and models.
 - **index.ts** - The main entry point of the application.
 - **tsconfig.json** - TypeScript compiler configuration.
 - **package.json** - Lists dependencies and defines various project scripts.

@@ -1,4 +1,4 @@
-apiVersion: beamlit.com/v1alpha1
+apiVersion: blaxel.ai/v1alpha1
 kind: IntegrationConnection
 metadata:
   name: openai
@@ -7,7 +7,7 @@ spec:
   secret:
     apiKey: ${secrets.OPENAI_API_KEY}
 ---
-apiVersion: beamlit.com/v1alpha1
+apiVersion: blaxel.ai/v1alpha1
 kind: Model
 metadata:
   displayName: gpt-4o-mini
@@ -21,7 +21,7 @@ spec:
     model: gpt-4o-mini
     type: openai
 ---
-apiVersion: beamlit.com/v1alpha1
+apiVersion: blaxel.ai/v1alpha1
 kind: Model
 metadata:
   displayName: text-embedding-3-large

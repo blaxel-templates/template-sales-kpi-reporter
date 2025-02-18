@@ -1,4 +1,4 @@
-import { KnowledgebaseFactory } from "@beamlit/sdk/knowledgebase/factory.js";
+import { KnowledgebaseFactory } from "@blaxel/sdk/knowledgebase/factory.js";
 
 export const getKnowledgebase = async () => {
   return await KnowledgebaseFactory.create({

@@ -1,4 +1,4 @@
-apiVersion: beamlit.com/v1alpha1
+apiVersion: blaxel.ai/v1alpha1
 kind: IntegrationConnection
 metadata:
   name: aws-s3-integration
@@ -11,7 +11,7 @@ spec:
     secretAccessKey: ${secrets.AWS_SECRET_ACCESS_KEY}
     sessionToken: ${secrets.AWS_SESSION_TOKEN}
 ---
-apiVersion: beamlit.com/v1alpha1
+apiVersion: blaxel.ai/v1alpha1
 kind: Function
 metadata:
   name: aws-s3

@@ -1,4 +1,4 @@
-import { createApp, logger, runApp } from "@beamlit/sdk";
+import { createApp, logger, runApp } from "@blaxel/sdk";
 
 createApp()
   .then((app) => runApp(app))
