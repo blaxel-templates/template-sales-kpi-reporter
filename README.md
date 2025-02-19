@@ -1,6 +1,7 @@
 # Template Sales KPI Reporter
 
-This repository is a demo implementation of a Sales KPI Reporter agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com). The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in a Qdrant-based knowledge base.
+This repository is a demo implementation of a Sales KPI Reporter agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com).
+The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in a Qdrant-based knowledge base.
 
 ## Prerequisites
 
@@ -19,8 +20,8 @@ This repository is a demo implementation of a Sales KPI Reporter agent built usi
 - **Clone the repository and install the dependencies**:
 
   ```bash
-  git clone https://github.com/beamlit/demo-sales-kpi-reporter.git
-  cd demo-sales-kpi-reporter
+  git clone https://github.com/beamlit/template-sales-kpi-reporter.git
+  cd template-sales-kpi-reporter
   npm install
   ```
 
@@ -32,9 +33,9 @@ This repository is a demo implementation of a Sales KPI Reporter agent built usi
 
   Then, update the following values with your own credentials:
 
-  - AWS credentials: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`, `AWS_BUCKET`
-  - Qdrant details: `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME`
-  - OpenAI key: `OPENAI_API_KEY`
+  - [AWS credentials](https://aws.amazon.com/s3): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`, `AWS_BUCKET`
+  - [Qdrant details](https://cloud.qdrant.io/accounts/d416c5c1-67f2-4e25-9f02-84205b220ab8/cloud-access/database-api-keys): `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME`
+  - [OpenAI key](https://platform.openai.com/api-keys): `OPENAI_API_KEY`
 
 - **Blaxel apply:** register your integration connection / functions / models on blaxel.ai
 
@@ -54,7 +55,7 @@ To populate the Qdrant knowledge base with documents:
 
 ## Running the Server Locally
 
-Start the development server with hot reloading using the Beamlit CLI command:
+Start the development server with hot reloading using the Blaxel CLI command:
 
 ```bash
 bl serve --hotrealod
@@ -62,7 +63,7 @@ bl serve --hotrealod
 
 _Note:_ This command starts the server and enables hot reload so that changes to the source code are automatically reflected.
 
-## Deploying to Beamlit
+## Deploying to Blaxel
 
 When you are ready to deploy your application, run:
 
