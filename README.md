@@ -1,4 +1,4 @@
-# Demo Sales KPI Reporter
+# Template Sales KPI Reporter
 
 This repository is a demo implementation of a Sales KPI Reporter agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com). The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in a Qdrant-based knowledge base.
 
@@ -35,6 +35,12 @@ This repository is a demo implementation of a Sales KPI Reporter agent built usi
   - AWS credentials: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`, `AWS_BUCKET`
   - Qdrant details: `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME`
   - OpenAI key: `OPENAI_API_KEY`
+
+- **Blaxel apply:** register your integration connection / functions / models on blaxel.ai
+
+```bash
+bl apply -R -f .blaxel
+```
 
 ## (Optional) Populating the Knowledge Base
 

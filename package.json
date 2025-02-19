@@ -1,7 +1,7 @@
 {
-  "name": "demo-amazon-marketplace",
+  "name": "template-sales-kpi-reporter",
   "version": "1.0.0",
-  "description": "",
+  "description": "Template for a sales KPI reporter",
   "main": "index.ts",
   "scripts": {
     "start": "npx tsx --tsconfig=tsconfig.json index.ts",
@@ -13,7 +13,7 @@
   "author": "cploujoux",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/sdk": "^0.0.62",
+    "@blaxel/sdk": "^0.0.64",
     "@langchain/anthropic": "^0.3.12",
     "@langchain/cohere": "^0.3.2",
     "@langchain/deepseek": "^0.0.1",
