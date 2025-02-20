@@ -13,7 +13,7 @@
   "author": "cploujoux",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/sdk": "^0.0.65",
+    "@blaxel/sdk": "^0.0.66-alpha.93",
     "@langchain/anthropic": "^0.3.12",
     "@langchain/cohere": "^0.3.2",
     "@langchain/deepseek": "^0.0.1",
@@ -22,6 +22,7 @@
     "@langchain/openai": "^0.3.17",
     "@langchain/xai": "^0.0.1",
     "@qdrant/js-client-rest": "^1.13.0",
+    "dotenv": "^16.4.7",
     "uuid": "^11.0.5"
   },
   "devDependencies": {

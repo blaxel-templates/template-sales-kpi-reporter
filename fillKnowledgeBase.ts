@@ -1,8 +1,11 @@
 import { logger } from "@blaxel/sdk";
 import { randomUUID } from "crypto";
+import { config } from "dotenv";
 import fs from "fs/promises";
 import path from "path";
 import { getKnowledgebase } from "./src/knowledgebase";
+
+config();
 
 /**
  * List the file names in a given directory.
