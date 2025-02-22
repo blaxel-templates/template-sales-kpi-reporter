@@ -58,7 +58,7 @@ To populate the Qdrant knowledge base with documents:
 Start the development server with hot reloading using the Blaxel CLI command:
 
 ```bash
-bl serve --hotrealod
+bl serve --hotreload
 ```
 
 _Note:_ This command starts the server and enables hot reload so that changes to the source code are automatically reflected.
