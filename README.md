@@ -1,7 +1,10 @@
 # Template Sales KPI Reporter
 
 This repository is a demo implementation of a Sales KPI Reporter agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com).
-The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in a Qdrant-based knowledge base.
+The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in:
+
+- an AWS S3 bucket
+- a Qdrant-based knowledge base
 
 ## Prerequisites
 
@@ -31,10 +34,10 @@ The agent processes HTTP requests, streams responses, and dynamically enriches c
   cp .env-sample .env
   ```
 
-  Then, update the following values with your own credentials:
+  Then, update the following values with your own credentials. If you do not have a `COLLECTION_NAME` on Qdrant already, you can run the pre-populating command in the next section to create a new collection:
 
-  - [AWS credentials](https://aws.amazon.com/s3): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`, `AWS_BUCKET`
-  - [Qdrant details](https://cloud.qdrant.io/accounts/d416c5c1-67f2-4e25-9f02-84205b220ab8/cloud-access/database-api-keys): `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME`
+  - [AWS S3 credentials](https://aws.amazon.com/s3): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`, `AWS_BUCKET`
+  - [Qdrant details](https://cloud.qdrant.io/accounts/d416c5c1-67f2-4e25-9f02-84205b220ab8/cloud-access/database-api-keys): `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME` If you do not have a collection on Qdrant already, enter any collection_name and the collection will be created for you when running the pre-populating command in the next section.
   - [OpenAI key](https://platform.openai.com/api-keys): `OPENAI_API_KEY`
 
 - **Blaxel apply:** register your integration connection / functions / models on blaxel.ai
@@ -47,7 +50,7 @@ bl apply -R -f .blaxel
 
 To populate the Qdrant knowledge base with documents:
 
-1. Place your documents in the `documents` folder.
+1. Place your documents in the `documents` folder. If you do not have any documents, you can use the sample documents provided in the `documents` folder.
 2. Run the following command to import the documents:
    ```bash
    npm run fill-knowledge-base
