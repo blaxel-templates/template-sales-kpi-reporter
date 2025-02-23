@@ -9,7 +9,6 @@ spec:
   secret:
     accessKeyId: ${secrets.AWS_ACCESS_KEY_ID}
     secretAccessKey: ${secrets.AWS_SECRET_ACCESS_KEY}
-    sessionToken: ${secrets.AWS_SESSION_TOKEN}
 ---
 apiVersion: blaxel.ai/v1alpha1
 kind: Function

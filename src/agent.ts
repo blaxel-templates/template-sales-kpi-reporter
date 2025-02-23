@@ -81,7 +81,7 @@ const handleContext = async (
     );
     if (documents.length > 0) {
       let context = "Relevant information from previous conversations:\n";
-
+      logger.info(`Retrieved ${documents.length} documents from knowledgebase`);
       // Append each found doc with its similarity score.
       documents.forEach((doc: { value: string; similarity: number }) => {
         context += `- ${doc.value} (score: ${doc.similarity})\n`;
