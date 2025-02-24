@@ -149,7 +149,7 @@ export const agent = async () => {
   return wrapAgent(handleRequest, {
     agent: {
       metadata: {
-        name: "demo-sales-kpi-reporter",
+        name: "template-sales-kpi-reporter",
       },
       spec: {
         prompt,
