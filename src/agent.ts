@@ -1,10 +1,3 @@
-/**
- * @file agent.ts
- * @description This file sets up a chat agent using the BeamLit SDK and LangChain tools.
- * It handles incoming HTTP requests, streams responses from the underlying agent,
- * and dynamically enriches the conversation context using a knowledgebase.
- */
-
 import {
   getChatModel,
   getDefaultThread,
@@ -20,7 +13,6 @@ import {
   SystemMessage,
 } from "@langchain/core/messages";
 import {
-  CompiledGraph,
   LangGraphRunnableConfig,
   MemorySaver,
   MessagesAnnotation,
@@ -30,28 +22,7 @@ import { FastifyRequest } from "fastify";
 import { v4 as uuidv4 } from "uuid";
 import { getKnowledgebase } from "./knowledgebase";
 import { prompt } from "./prompt";
-
-/**
- * Input type for handling chat inputs.
- *
- * @typedef {Object} InputType
- * @property {string | null} inputs - Primary input field.
- * @property {string | null} input - Alternative input field.
- */
-type InputType = {
-  inputs: string | null;
-  input: string | null;
-};
-
-/**
- * Type representing the agent instance.
- *
- * @typedef {Object} AgentType
- * @property {CompiledGraph<any, any, any, any, any, any>} agent - The compiled graph for the agent.
- */
-type AgentType = {
-  agent: CompiledGraph<any, any, any, any, any, any>;
-};
+import { AgentType, InputType } from "./types";
 
 /**
  * Enhances the chat conversation context by incorporating relevant previous information.
@@ -126,7 +97,7 @@ const handleContext = async (
  * @param {AgentType} args - An object containing the agent instance.
  * @returns {Promise<string>} The final message content from the agent.
  */
-const req = async (request: FastifyRequest, args: AgentType) => {
+const handleRequest = async (request: FastifyRequest, args: AgentType) => {
   const { agent } = args;
   const body = (await request.body) as InputType;
   // Retrieve an existing thread ID or generate a new one for the conversation.
@@ -175,13 +146,15 @@ export const agent = async () => {
   // Initialize the knowledgebase for context retrieval.
   const knowledgebase = await getKnowledgebase();
   // Wrap the agent with a custom HTTP request handler and additional metadata.
-  return wrapAgent(req, {
+  return wrapAgent(handleRequest, {
     agent: {
       metadata: {
         name: "demo-sales-kpi-reporter",
       },
       spec: {
         prompt,
+        functions: ["aws-s3"],
+        model: "gpt-4o-mini",
       },
     },
     overrideAgent: createReactAgent({
