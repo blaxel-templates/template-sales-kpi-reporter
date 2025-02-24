@@ -76,6 +76,12 @@ bl deploy
 
 This command uses your code and the configuration files under the `.blaxel` directory to deploy your application.
 
+## Example inputs
+
+- How can I boost Amazon listings
+- List my KPI on amazon sales
+- How can I improve my sales ? List countries where my KPI should improve. Do this list in a table
+
 ## Project Structure
 
 - **src/**
