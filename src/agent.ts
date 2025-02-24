@@ -155,6 +155,26 @@ export const agent = async () => {
         prompt,
         functions: ["aws-s3"],
         model: "gpt-4o-mini",
+        runtime: {
+          envs: [
+            {
+              name: "AWS_BUCKET",
+              value: process.env.AWS_BUCKET,
+            },
+            {
+              name: "QDRANT_URL",
+              value: process.env.QDRANT_URL,
+            },
+            {
+              name: "QDRANT_API_KEY",
+              value: "$secrets.QDRANT_API_KEY",
+            },
+            {
+              name: "QDRANT_COLLECTION_NAME",
+              value: process.env.QDRANT_COLLECTION_NAME,
+            },
+          ],
+        },
       },
     },
     overrideAgent: createReactAgent({
