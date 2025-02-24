@@ -5,7 +5,7 @@ import {
   logger,
   wrapAgent,
 } from "@blaxel/sdk";
-import { KnowledgebaseClass } from "@blaxel/sdk/knowledgebase/types.js";
+import { KnowledgebaseClass } from "@blaxel/sdk/knowledgebases/types.js";
 import { BaseChatModel } from "@langchain/core/language_models/chat_models";
 import {
   BaseMessage,
