@@ -13,7 +13,7 @@
   "author": "cploujoux",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/sdk": "^0.0.69",
+    "@blaxel/sdk": "^0.0.70",
     "@langchain/anthropic": "^0.3.12",
     "@langchain/cohere": "^0.3.2",
     "@langchain/deepseek": "^0.0.1",
