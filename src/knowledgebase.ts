@@ -1,4 +1,4 @@
-import { KnowledgebaseFactory } from "@blaxel/sdk/knowledgebases/factory.js";
+import { KnowledgebaseFactory } from "@blaxel/sdk/knowledgebases/factory";
 
 export const getKnowledgebase = async () => {
   return await KnowledgebaseFactory.create({
