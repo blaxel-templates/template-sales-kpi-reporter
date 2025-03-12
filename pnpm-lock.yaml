@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@blaxel/sdk':
-        specifier: ^0.0.70
-        version: 0.0.70(024aa80767289d07eabb700427ae1659)
+        specifier: ^0.0.72
+        version: 0.0.72(024aa80767289d07eabb700427ae1659)
       '@langchain/anthropic':
         specifier: ^0.3.12
         version: 0.3.15(@langchain/core@0.3.42(openai@4.86.2(ws@8.18.1)(zod@3.24.2)))
@@ -382,8 +382,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@blaxel/sdk@0.0.70':
-    resolution: {integrity: sha512-kd/CoX+xNSANyeLgRv2rGL8DOv0gaf1bXD1MNuUsEgrXAvxvFzXtphXCo93GrucKw6+fGZWBAU3yOSurbHMUEg==}
+  '@blaxel/sdk@0.0.72':
+    resolution: {integrity: sha512-wC3ykMX5UGGZ4BbgECjAEDX+9dcWHamdPJpvLR0yZmbjqQ+v58+IJYoOJmT+77ijiSMdNxkWFZFvbu0YA1U6Wg==}
     engines: {node: '>=18'}
 
   '@browserbasehq/sdk@2.3.0':
@@ -4065,7 +4065,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@blaxel/sdk@0.0.70(024aa80767289d07eabb700427ae1659)':
+  '@blaxel/sdk@0.0.72(024aa80767289d07eabb700427ae1659)':
     dependencies:
       '@fastify/cors': 10.1.0
       '@fastify/websocket': 11.0.2
@@ -7193,7 +7193,7 @@ snapshots:
 
   send@1.1.0:
     dependencies:
-      debug: 4.3.6
+      debug: 4.4.0
       destroy: 1.2.0
       encodeurl: 2.0.0
       escape-html: 1.0.3
