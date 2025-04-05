@@ -1,0 +1,12 @@
+type = "agent"
+
+functions = ["aws-s3"]
+models = ["sandbox-openai"]
+
+[env]
+AWS_BUCKET = "template-sales-kpi-amazon"
+AWS_REGION = "your-aws-region"
+
+QDRANT_URL = "your-qdrant-url"
+QDRANT_COLLECTION_NAME = "template-sales-kpi-amazon"
+QDRANT_EMBEDDING_MODEL = "text-embedding-3-large"

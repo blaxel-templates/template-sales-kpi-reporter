@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 .ruff_cache
 node_modules
+.cache.yaml
 # C extensions
 *.so
 

@@ -93,16 +93,17 @@ bl chat template-sales-kpi-reporter
 ## Project Structure
 
 - **src/**
+  - `index.ts` - Application entry point
   - `agent.ts` - Configures the chat agent, streams HTTP responses, and integrates conversational context.
   - `knowledgebase.ts` - Establishes the connection and configuration for the Qdrant knowledge base.
   - `prompt.ts` - Contains the prompt definition used for the chat agent.
-  - `functions` - Directory to add your functions/tools available to your agent. Documentation on how to develop your own functions
 - **documents/** - Includes the sample documents to populate the knowledge base.
 - **fillKnowledgeBase.ts** - Script to import document content into the knowledge base.
 - **.blaxel/** - Contains configuration files for Blaxel functions and models.
 - **index.ts** - The main entry point of the application.
 - **tsconfig.json** - TypeScript compiler configuration.
 - **package.json** - Lists dependencies and defines various project scripts.
+- **blaxel.toml** - Blaxel deployment configuration
 
 ## License
 

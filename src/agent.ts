@@ -1,12 +1,4 @@
-import {
-  getChatModel,
-  getDefaultThread,
-  getFunctions,
-  logger,
-  wrapAgent,
-} from "@blaxel/sdk";
-import { KnowledgebaseClass } from "@blaxel/sdk/knowledgebases/types";
-import { BaseChatModel } from "@langchain/core/language_models/chat_models";
+import { blModel, blTools, logger } from "@blaxel/sdk";
 import {
   BaseMessage,
   HumanMessage,
@@ -20,9 +12,14 @@ import {
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import { FastifyRequest } from "fastify";
 import { v4 as uuidv4 } from "uuid";
-import { getKnowledgebase } from "./knowledgebase";
+import { getKnowledgebase, QdrantKnowledgebase } from "./knowledgebase";
 import { prompt } from "./prompt";
 import { AgentType, InputType } from "./types";
+
+interface Stream {
+  write: (data: string) => void;
+  end: () => void;
+}
 
 /**
  * Enhances the chat conversation context by incorporating relevant previous information.
@@ -36,13 +33,13 @@ import { AgentType, InputType } from "./types";
  * @function handleContext
  * @param {typeof MessagesAnnotation.State} state - The current conversation state.
  * @param {LangGraphRunnableConfig} config - Configuration details for the langgraph execution.
- * @param {KnowledgebaseClass} knowledgebase - Instance used to perform knowledgebase searches.
+ * @param {QdrantKno} knowledgebase - Instance used to perform knowledgebase searches.
  * @returns {Promise<BaseMessage[]>} An array of chat messages including the enhanced context.
  */
 const handleContext = async (
   state: typeof MessagesAnnotation.State,
   config: LangGraphRunnableConfig,
-  knowledgebase: KnowledgebaseClass
+  knowledgebase: QdrantKnowledgebase
 ) => {
   const messages: BaseMessage[] = [];
   try {
@@ -101,7 +98,7 @@ const handleRequest = async (request: FastifyRequest, args: AgentType) => {
   const { agent } = args;
   const body = (await request.body) as InputType;
   // Retrieve an existing thread ID or generate a new one for the conversation.
-  const thread_id = getDefaultThread(request) || uuidv4();
+  const thread_id = request.headers["thread-id"] || uuidv4();
   // Extract the user input from one of the possible fields.
   const input = body.inputs || body.input || "";
   const responses: any[] = [];
@@ -126,7 +123,7 @@ const handleRequest = async (request: FastifyRequest, args: AgentType) => {
  *
  * The function sets up the chat agent by:
  *  - Retrieving the available functions and tools.
- *  - Loading the specified chat model, here "sandbox-openai".
+ *  - Loading the specified chat model, here "gpt-4o-mini".
  *  - Initializing the knowledgebase for retrieving previous conversation context.
  *
  * It then uses the `wrapAgent` helper to combine the HTTP request handler (`req`)
@@ -137,57 +134,41 @@ const handleRequest = async (request: FastifyRequest, args: AgentType) => {
  * @function agent
  * @returns {Promise<any>} The fully configured and wrapped chat agent.
  */
-export const agent = async () => {
+export const agent = async (
+  thread_id: string,
+  input: string,
+  stream: Stream
+): Promise<void> => {
   // Retrieve available functions for the agent.
-  const functions = await getFunctions({ remoteFunctions: ["aws-s3"] });
+  const tools = await blTools(["aws-s3"]).ToLangChain();
 
-  // Load the chat model (e.g., "sandbox-openai").
-  const model = (await getChatModel("gpt-4o-mini")) as BaseChatModel<any, any>;
+  // Load the chat model (e.g., "gpt-4o-mini").
+  const llm = await blModel("gpt-4o-mini").ToLangChain();
+
   // Initialize the knowledgebase for context retrieval.
   const knowledgebase = await getKnowledgebase();
-  // Wrap the agent with a custom HTTP request handler and additional metadata.
-  return wrapAgent(handleRequest, {
-    agent: {
-      metadata: {
-        name: "template-sales-kpi-reporter",
-      },
-      spec: {
-        prompt,
-        functions: ["aws-s3"],
-        model: "gpt-4o-mini",
-        runtime: {
-          envs: [
-            {
-              name: "AWS_BUCKET",
-              value: process.env.AWS_BUCKET,
-            },
-            {
-              name: "QDRANT_URL",
-              value: process.env.QDRANT_URL,
-            },
-            {
-              name: "QDRANT_API_KEY",
-              value: "$secrets.QDRANT_API_KEY",
-            },
-            {
-              name: "QDRANT_COLLECTION_NAME",
-              value: process.env.QDRANT_COLLECTION_NAME,
-            },
-          ],
-        },
-      },
+
+  const agent = createReactAgent({
+    llm,
+    tools,
+    checkpointSaver: new MemorySaver(),
+    // Override the prompt function to inject context from the knowledgebase.
+    prompt: async (
+      state: typeof MessagesAnnotation.State,
+      config: LangGraphRunnableConfig
+    ) => {
+      return await handleContext(state, config, knowledgebase);
     },
-    overrideAgent: createReactAgent({
-      llm: model,
-      tools: functions,
-      checkpointSaver: new MemorySaver(),
-      // Override the prompt function to inject context from the knowledgebase.
-      prompt: async (
-        state: typeof MessagesAnnotation.State,
-        config: LangGraphRunnableConfig
-      ) => {
-        return await handleContext(state, config, knowledgebase);
-      },
-    }),
   });
+  const streamResponse = await agent.stream(
+    { messages: [new HumanMessage(input)] },
+    { configurable: { thread_id } }
+  );
+  for await (const chunk of streamResponse) {
+    if (chunk.agent)
+      for (const message of chunk.agent.messages) {
+        stream.write(message.content);
+      }
+  }
+  stream.end();
 };
