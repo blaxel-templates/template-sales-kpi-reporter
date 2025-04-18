@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@blaxel/sdk':
-        specifier: 0.1.8
-        version: 0.1.8(310fdbe7867f1d52efe6ef69f0620aeb)
+        specifier: 0.1.9
+        version: 0.1.9(310fdbe7867f1d52efe6ef69f0620aeb)
       '@hey-api/client-fetch':
         specifier: ^0.10.0
         version: 0.10.0(@hey-api/openapi-ts@0.66.2(typescript@5.8.2))
@@ -426,8 +426,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@blaxel/sdk@0.1.8':
-    resolution: {integrity: sha512-p97JwmRdwGgQMk7cUmk6WtiR6qBJolOIelK12LTLiXnlndHYOEjv6+Ys/24Li3a7WleRKfk+9k/0JZAaOPStUA==}
+  '@blaxel/sdk@0.1.9':
+    resolution: {integrity: sha512-U4AQCXHXNf4tQhuVq+SUj9WSk1GPcEDdamrRP97yf/azNeuHMZucrUPL6pbsESmllOpjZi5U1r6FXQvS/eHu6A==}
     engines: {node: '>=18'}
     peerDependencies:
       '@ai-sdk/anthropic': ^1.2.9
@@ -4061,7 +4061,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@blaxel/sdk@0.1.8(310fdbe7867f1d52efe6ef69f0620aeb)':
+  '@blaxel/sdk@0.1.9(310fdbe7867f1d52efe6ef69f0620aeb)':
     dependencies:
       '@hey-api/client-fetch': 0.5.7
       '@modelcontextprotocol/sdk': 1.9.0
