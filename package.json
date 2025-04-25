@@ -14,10 +14,11 @@
   "author": "cploujoux",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/sdk": "0.1.9",
+    "@blaxel/sdk": "0.1.11",
     "@hey-api/client-fetch": "^0.10.0",
     "@langchain/core": "^0.3.43",
     "@langchain/langgraph": "^0.2.62",
+    "@opentelemetry/instrumentation-fastify": "^0.45.0",
     "@qdrant/js-client-rest": "^1.13.0",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1",
