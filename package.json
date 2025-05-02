@@ -14,7 +14,7 @@
   "author": "cploujoux",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/sdk": "0.1.11",
+    "@blaxel/sdk": "0.1.15",
     "@hey-api/client-fetch": "^0.10.0",
     "@langchain/core": "^0.3.43",
     "@langchain/langgraph": "^0.2.62",
