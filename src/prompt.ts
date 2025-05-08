@@ -1,4 +1,4 @@
-import { env } from "@blaxel/sdk";
+import { env } from "@blaxel/core";
 
 export const prompt = `
 You are a sales KPI assistant

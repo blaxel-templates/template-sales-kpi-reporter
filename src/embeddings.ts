@@ -1,6 +1,5 @@
-import { logger, settings } from "@blaxel/sdk";
-import { SpanManager } from "@blaxel/sdk/instrumentation/span";
-import { HTTPError } from "./error";
+import { settings } from "@blaxel/core";
+import { HTTPError } from "./error.js";
 
 export interface EmbeddingsConfig {
   model: string;
@@ -35,32 +34,22 @@ export class EmbeddingModel {
     const url = `${settings.runUrl}/${settings.workspace}/models/${this.config.model}/v1/embeddings`;
     const body = JSON.stringify({ input: query });
 
-    const spanManager = new SpanManager("blaxel-tracer");
-    return spanManager.createActiveSpan(
-      this.config.model,
-      {
-        "model.name": this.config.model,
-        "model.args": JSON.stringify(query),
-      },
-      async () => {
-        try {
-          const response = await fetch(url, {
-            method: "POST",
-            headers: {
-              ...settings.headers,
-              "Content-Type": "application/json",
-            },
-            body,
-          });
-          if (response.status >= 400) {
-            throw new HTTPError(response.status, await response.text());
-          }
-          return await response.json();
-        } catch (err: any) {
-          logger.error(err.stack);
-          throw err;
-        }
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          ...settings.headers,
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+      if (response.status >= 400) {
+        throw new HTTPError(response.status, await response.text());
       }
-    );
+      return await response.json();
+    } catch (err: any) {
+      console.error(err.stack);
+      throw err;
+    }
   }
 }

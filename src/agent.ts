@@ -1,4 +1,4 @@
-import { blModel, blTools, logger } from "@blaxel/sdk";
+import { blModel, blTools } from "@blaxel/langgraph";
 import {
   BaseMessage,
   HumanMessage,
@@ -49,7 +49,7 @@ const handleContext = async (
     );
     if (documents.length > 0) {
       let context = "Relevant information from previous conversations:\n";
-      logger.info(`Retrieved ${documents.length} documents from knowledgebase`);
+      console.info(`Retrieved ${documents.length} documents from knowledgebase`);
       // Append each found doc with its similarity score.
       documents.forEach((doc: { value: string; similarity: number }) => {
         context += `- ${doc.value} (score: ${doc.similarity})\n`;
@@ -71,7 +71,7 @@ const handleContext = async (
     } else {
       context = ` Could not retrieve documents from store: ${error}`;
     }
-    logger.warn(context);
+    console.warn(context);
     // Append the error information to the prompt.
     const message = new SystemMessage(prompt + context);
     messages.push(message);
@@ -140,10 +140,10 @@ export const agent = async (
   stream: Stream
 ): Promise<void> => {
   // Retrieve available functions for the agent.
-  const tools = await blTools(["aws-s3"]).ToLangChain();
+  const tools = await blTools(["aws-s3"]);
 
   // Load the chat model (e.g., "gpt-4o-mini").
-  const llm = await blModel("gpt-4o-mini").ToLangChain();
+  const llm = await blModel("gpt-4o-mini");
 
   // Initialize the knowledgebase for context retrieval.
   const knowledgebase = await getKnowledgebase();

@@ -1,9 +1,8 @@
-import { logger } from "@blaxel/sdk";
 import { randomUUID } from "crypto";
 import { config } from "dotenv";
 import fs from "fs/promises";
 import path from "path";
-import { getKnowledgebase } from "./src/knowledgebase";
+import { getKnowledgebase } from "./src/knowledgebase.js";
 
 config();
 
@@ -37,7 +36,7 @@ const main = async () => {
       })
     );
 
-    logger.info(
+    console.info(
       `Storing the following documents in Qdrant: ${documents
         .map((doc) => doc.id)
         .join(", ")}`
@@ -51,9 +50,9 @@ const main = async () => {
         });
       })
     );
-    logger.info("Documents successfully stored in Qdrant.");
+    console.info("Documents successfully stored in Qdrant.");
   } catch (error) {
-    logger.error(`Error storing documents in Qdrant: ${error}`);
+    console.error(`Error storing documents in Qdrant: ${error}`);
   }
 };
 

@@ -2,7 +2,7 @@
   "name": "template-sales-kpi-reporter",
   "version": "1.0.0",
   "description": "Template for a sales KPI reporter",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "start": "npx tsx src/index.ts",
     "prod": "node dist/index.js",
@@ -14,24 +14,21 @@
   "author": "cploujoux",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/sdk": "0.1.15",
-    "@hey-api/client-fetch": "^0.10.0",
-    "@langchain/core": "^0.3.43",
-    "@langchain/langgraph": "^0.2.62",
-    "@opentelemetry/instrumentation-fastify": "^0.45.0",
-    "@qdrant/js-client-rest": "^1.13.0",
-    "dotenv": "^16.4.7",
-    "fastify": "^5.2.1",
-    "uuid": "^11.0.5"
+    "@blaxel/core": "0.2.0",
+    "@blaxel/langgraph": "0.2.0",
+    "@blaxel/telemetry": "0.2.0",
+    "@langchain/core": "^0.3.51",
+    "@langchain/langgraph": "^0.2.68",
+    "@qdrant/js-client-rest": "^1.14.0",
+    "fastify": "^5.3.2",
+    "langchain": "^0.3.24",
+    "uuid": "^11.0.5",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@tsconfig/node20": "^20.1.4",
-    "@types/jest": "^29.5.14",
-    "@types/js-yaml": "^4.0.9",
-    "@types/node": "^22.10.5",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.2.5",
-    "typescript": "^5.7.2"
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.9",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
   }
 }
