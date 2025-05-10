@@ -4,9 +4,9 @@ functions = ["aws-s3"]
 models = ["sandbox-openai"]
 
 [env]
-AWS_BUCKET = "template-sales-kpi-amazon"
-AWS_REGION = "your-aws-region"
+AWS_BUCKET = "$AWS_BUCKET"
 
-QDRANT_URL = "your-qdrant-url"
-QDRANT_COLLECTION_NAME = "template-sales-kpi-amazon"
-QDRANT_EMBEDDING_MODEL = "text-embedding-3-large"
+QDRANT_URL = "$QDRANT_URL"
+QDRANT_COLLECTION_NAME = "$QDRANT_COLLECTION_NAME"
+QDRANT_EMBEDDING_MODEL = "$QDRANT_EMBEDDING_MODEL"
+QDRANT_API_KEY = "${secrets.QDRANT_API_KEY}"
