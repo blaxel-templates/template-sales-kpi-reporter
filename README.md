@@ -11,7 +11,7 @@ The agent processes HTTP requests, streams responses, and dynamically enriches c
 - **Node.js:** v18 or later.
 - **Blaxel CLI:** Ensure you have the Blaxel CLI installed. If not, install it globally:
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/beamlit/toolkit/main/install.sh | BINDIR=$HOME/.local/bin sh
+  curl -fsSL https://raw.githubusercontent.com/blaxel-ai/toolkit/main/install.sh | BINDIR=$HOME/.local/bin sh
   ```
 - **Blaxel login:** Login to Blaxel platform
   ```bash
@@ -23,7 +23,7 @@ The agent processes HTTP requests, streams responses, and dynamically enriches c
 - **Clone the repository and install the dependencies**:
 
   ```bash
-  git clone https://github.com/beamlit/template-sales-kpi-reporter.git
+  git clone https://github.com/blaxel-ai/template-sales-kpi-reporter.git
   cd template-sales-kpi-reporter
   npm install
   ```
