@@ -1,110 +1,135 @@
 # Template Sales KPI Reporter
 
-This repository is a demo implementation of a Sales KPI Reporter agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com).
-The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in:
+[![Build Status](https://img.shields.io/github/actions/workflow/status/blaxel-templates/template-sales-kpi-reporter/ci.yml?branch=main&style=flat-square)](https://github.com/blaxel-templates/template-sales-kpi-reporter/actions)
+[![PyPI Version](https://img.shields.io/pypi/v/template-sales-kpi-reporter?style=flat-square)](https://pypi.org/project/template-sales-kpi-reporter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-- an AWS S3 bucket
-- a Qdrant-based knowledge base
+An agent for Sales KPI reporting built using the Blaxel SDK and LangChain. It processes HTTP requests, streams responses, and dynamically adapts context with AWS S3 storage and Qdrant.
+
+## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Populating the Knowledge Base](#populating-the-knowledge-base)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- HTTP API for Sales KPI queries (`/kpi?metric=<value>`)
+- Real-time streaming responses
+- Contextual insights with vector search (Qdrant) & document storage (AWS S3)
+- Easy deployment and environment configuration via Blaxel CLI
 
 ## Prerequisites
 
-- **Node.js:** v18 or later.
-- **Blaxel CLI:** Ensure you have the Blaxel CLI installed. If not, install it globally:
-  ```bash
-  curl -fsSL https://raw.githubusercontent.com/blaxel-ai/toolkit/main/install.sh | BINDIR=$HOME/.local/bin sh
-  ```
-- **Blaxel login:** Login to Blaxel platform
-  ```bash
-    bl login YOUR-WORKSPACE
-  ```
+- Node.js v18 or later
+- [Blaxel CLI](https://github.com/blaxel-ai/toolkit)
+- AWS account with S3 access
+- Qdrant account & API key
+- OpenAI API key (for embeddings)
 
 ## Installation
 
-- **Clone the repository and install the dependencies**:
-
-  ```bash
-  git clone https://github.com/blaxel-ai/template-sales-kpi-reporter.git
-  cd template-sales-kpi-reporter
-  npm install
-  ```
-
-- **Environment Variables:** Create a `.env` file with your configuration. You can begin by copying the sample file:
-
-  ```bash
-  cp .env-sample .env
-  ```
-
-  Then, update the following values with your own credentials. If you do not have a `COLLECTION_NAME` on Qdrant already, you can run the pre-populating command in the next section to create a new collection:
-
-  - [AWS S3 credentials](https://aws.amazon.com/s3): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`, `AWS_BUCKET`
-  - [Qdrant details](https://cloud.qdrant.io/accounts/d416c5c1-67f2-4e25-9f02-84205b220ab8/cloud-access/database-api-keys): `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME` If you do not have a collection on Qdrant already, enter any collection_name and the collection will be created for you when running the pre-populating command in the next section.
-  - [OpenAI key](https://platform.openai.com/api-keys): `OPENAI_API_KEY`
-
-- **Blaxel apply:** register your integration connection / functions / models on blaxel.ai
-
 ```bash
-bl apply -R -f .blaxel
+git clone https://github.com/blaxel-templates/template-sales-kpi-reporter.git
+cd template-sales-kpi-reporter
+npm install
 ```
 
-## (Optional) Populating the Knowledge Base
+## Configuration
 
-To populate the Qdrant knowledge base with documents:
+Copy the sample environment file and update credentials:
 
-1. Place your documents in the `documents` folder. If you do not have any documents, you can use the sample documents provided in the `documents` folder.
-2. Run the following command to import the documents:
-   ```bash
-   npm run fill-knowledge-base
-   ```
+```bash
+cp .env-sample .env
+```
 
-## Running the Server Locally
+Edit `.env`:
+```env
+AWS_ACCESS_KEY_ID=<your-access-key>
+AWS_SECRET_ACCESS_KEY=<your-secret-key>
+AWS_REGION=<aws-region>
+QDRANT_API_KEY=<your-qdrant-key>
+QDRANT_URL=<your-qdrant-url>
+OPENAI_API_KEY=<your-openai-key>
+```
 
-Start the development server with hot reloading using the Blaxel CLI command:
+## Populating the Knowledge Base
+
+Place your documents in `./documents` and run:
+
+```bash
+npm run file-knowledge-base
+```
+
+Or use OpenAI embeddings:
+
+```bash
+npm run openai-knowledge-base
+```
+
+## Usage
+
+### Running Locally
 
 ```bash
 bl serve --hotreload
 ```
 
-_Note:_ This command starts the server and enables hot reload so that changes to the source code are automatically reflected.
-
-## Deploying to Blaxel
-
-When you are ready to deploy your application, run:
+### Example Request
 
 ```bash
-bl deploy
+curl http://localhost:3000/kpi?metric=revenue
 ```
 
-This command uses your code and the configuration files under the `.blaxel` directory to deploy your application.
-
-## Test your agent
-
-Question samples:
-
-- How can I boost Amazon listings
-- List my KPI on amazon sales
-- How can I improve my sales ? List countries where my KPI should improve. Do this list in a table
-
-Use Blaxel CLI to test your agent
-
+Sample streamed JSON response:
+```json
+{
+  "metric": "revenue",
+  "value": "$1,200,000",
+  "insights": "Revenue has grown 10% QoQ."
+}
 ```
-bl chat template-sales-kpi-reporter
-```
+
+## API Reference
+
+| Endpoint   | Method | Query Params | Description                      |
+|------------|--------|--------------|----------------------------------|
+| `/kpi`     | GET    | `metric`     | Fetch KPI report for a metric    |
+| `/health`  | GET    | -            | Health check                     |
 
 ## Project Structure
 
-- **src/**
-  - `index.ts` - Application entry point
-  - `agent.ts` - Configures the chat agent, streams HTTP responses, and integrates conversational context.
-  - `knowledgebase.ts` - Establishes the connection and configuration for the Qdrant knowledge base.
-  - `prompt.ts` - Contains the prompt definition used for the chat agent.
-- **documents/** - Includes the sample documents to populate the knowledge base.
-- **fillKnowledgeBase.ts** - Script to import document content into the knowledge base.
-- **.blaxel/** - Contains configuration files for Blaxel functions and models.
-- **index.ts** - The main entry point of the application.
-- **tsconfig.json** - TypeScript compiler configuration.
-- **package.json** - Lists dependencies and defines various project scripts.
-- **blaxel.toml** - Blaxel deployment configuration
+```
+src/
+├── index.ts                 # Application entry point
+├── agent.ts                 # Agent configuration & handlers
+├── knowledgeBase.ts         # Build knowledge base scripts
+├── prompt.ts                # Chat prompts for the agent
+├── file-knowledge-base.ts   # Document loader script
+├── openai-knowledge-base.ts # OpenAI embeddings loader
+└── ...
+
+documents/                   # Sample documents
+.env-sample                  # Environment variables template
+```
+
+## Contributing
+
+Contributions welcome!
+
+1. Fork the repo
+2. Create a feature branch (`git checkout -b feature/my-feature`)
+3. Commit changes
+4. Open a pull request
+
+See [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+MIT © 2025 Blaxel AI
