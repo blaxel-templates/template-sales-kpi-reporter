@@ -1,4 +1,4 @@
-# Blaxel Sales KPI Reporter
+# Blaxel Sales KPI Reporter Agent
 
 <p align="center">
   <img src="https://blaxel.ai/logo.png" alt="Blaxel" width="200"/>
@@ -7,45 +7,42 @@
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-powered-blue.svg)](https://www.typescriptlang.org/)
-[![LangChain](https://img.shields.io/badge/LangChain-integrated-orange.svg)](https://langchain.com)
-[![AWS](https://img.shields.io/badge/AWS_S3-connected-232F3E.svg)](https://aws.amazon.com/s3/)
+[![Node.js 18+](https://img.shields.io/badge/node-18+-green.svg)](https://nodejs.org/downloads/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg)](https://www.typescriptlang.org/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-powered-brightgreen.svg)](https://github.com/langchain-ai/langgraph)
+[![Qdrant](https://img.shields.io/badge/Qdrant-vector_db-red.svg)](https://qdrant.tech/)
+[![AWS S3](https://img.shields.io/badge/AWS-S3-orange.svg)](https://aws.amazon.com/s3/)
 
 </div>
 
-This repository is a demo implementation of a Sales KPI Reporter agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com).
-The agent processes HTTP requests, streams responses, and dynamically enriches conversational context with data stored in:
+An intelligent sales KPI reporting agent built with LangGraph and TypeScript. This agent combines sales best practices knowledge with real-time KPI data from AWS S3 to provide comprehensive sales insights, analysis, and recommendations. It leverages vector search through Qdrant for contextual information retrieval and provides streaming responses for real-time interaction.
 
-- an AWS S3 bucket
-- a Qdrant-based knowledge base
+## 📑 Table of Contents
 
-## 📋 Table of Contents
+- [✨ Features](#features)
+- [🚀 Quick Start](#quick-start)
+- [📋 Prerequisites](#prerequisites)
+- [💻 Installation](#installation)
+- [🔧 Usage](#usage)
+  - [Running Locally](#running-locally)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+- [📁 Project Structure](#project-structure)
+- [❓ Troubleshooting](#troubleshooting)
+- [👥 Contributing](#contributing)
+- [🆘 Support](#support)
+- [📄 License](#license)
 
-- [Features](#-features)
-- [Quick Start](#-quick-start)
-- [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
-- [Usage](#-usage)
-  - [Populating the Knowledge Base](#optional-populating-the-knowledge-base)
-  - [Running Locally](#running-the-server-locally)
-  - [Testing](#test-your-agent)
-  - [Deployment](#deploying-to-blaxel)
-- [API Reference](#-api-reference)
-- [Project Structure](#-project-structure)
-- [Examples](#-examples)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
-- [Support](#-support)
-- [License](#-license)
+## ✨ Features
 
-## ⚙️ Features
-
-- Interactive conversational interface for sales data analysis
-- Integration with AWS S3 for storage of sales data
-- Qdrant vector database for efficient knowledge retrieval
-- Real-time streaming responses
-- Built on LangChain for efficient agent orchestration
+- Intelligent sales KPI analysis and reporting with natural language queries
+- Integration with AWS S3 for real-time KPI data access
+- Vector-based knowledge retrieval using Qdrant for contextual information
+- Pre-loaded sales best practices and Amazon selling guides
+- LangGraph-powered agent with tool integration and state management
+- Streaming responses for real-time interaction
+- Memory persistence across conversation sessions
+- TypeScript implementation with robust type safety
 - Easy deployment and integration with Blaxel platform
 
 ## 🚀 Quick Start
@@ -62,35 +59,42 @@ cd template-sales-kpi-reporter
 # Install dependencies
 npm install
 
-# Configure environment variables
+# Set up environment variables
 cp .env-sample .env
-# Edit .env with your credentials
+# Edit .env with your AWS and Qdrant credentials
 
-# Register Blaxel components
-bl apply -R -f .blaxel
+# Fill the knowledge base with sales documents
+npm run fill-knowledge-base
 
-# Start the server
-bl serve --hotreload
+# Start the development server
+npm run dev
 
-# In another terminal, test the agent
-bl chat template-sales-kpi-reporter
+# In another terminal, deploy to Blaxel
+bl deploy
+
+# Test the agent
+bl chat --local sales-kpi-agent
 ```
 
-## 🔌 Prerequisites
+## 📋 Prerequisites
 
-- **Node.js:** v18 or later
-- **Blaxel CLI:** Install globally:
-  ```bash
-  curl -fsSL https://raw.githubusercontent.com/blaxel-ai/toolkit/main/install.sh | BINDIR=$HOME/.local/bin sh
-  ```
-- **Blaxel login:** Login to Blaxel platform
-  ```bash
-  bl login YOUR-WORKSPACE
-  ```
+- **Node.js:** 18.0 or later
+- **[NPM](https://www.npmjs.com/):** Node package manager
+- **AWS Account:** For S3 bucket access to KPI data
+- **Qdrant Database:** For vector storage and similarity search
+- **Blaxel Platform Setup:** Complete Blaxel setup by following the [quickstart guide](https://docs.blaxel.ai/Get-started#quickstart)
+  - **[Blaxel CLI](https://docs.blaxel.ai/Get-started):** Ensure you have the Blaxel CLI installed. If not, install it globally:
+    ```bash
+    curl -fsSL https://raw.githubusercontent.com/blaxel-ai/toolkit/main/install.sh | BINDIR=/usr/local/bin sudo -E sh
+    ```
+  - **Blaxel login:** Login to Blaxel platform
+    ```bash
+    bl login YOUR-WORKSPACE
+    ```
 
-## 🛠️ Installation
+## 💻 Installation
 
-**Clone the repository and install the dependencies**:
+**Clone the repository and install dependencies:**
 
 ```bash
 git clone https://github.com/blaxel-ai/template-sales-kpi-reporter.git
@@ -98,169 +102,128 @@ cd template-sales-kpi-reporter
 npm install
 ```
 
-**Environment Variables:** Create a `.env` file with your configuration. You can begin by copying the sample file:
+**Set up environment variables:**
 
 ```bash
 cp .env-sample .env
 ```
 
-Then, update the following values with your own credentials. If you do not have a `COLLECTION_NAME` on Qdrant already, you can run the pre-populating command in the next section to create a new collection:
+Edit the `.env` file with your credentials:
 
-- [AWS S3 credentials](https://aws.amazon.com/s3): `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`, `AWS_BUCKET`
-- [Qdrant details](https://cloud.qdrant.io/accounts/d416c5c1-67f2-4e25-9f02-84205b220ab8/cloud-access/database-api-keys): `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME` If you do not have a collection on Qdrant already, enter any collection_name and the collection will be created for you when running the pre-populating command in the next section.
-- [OpenAI key](https://platform.openai.com/api-keys): `OPENAI_API_KEY`
+```env
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
 
-**Blaxel apply:** register your integration connection / functions / models on blaxel.ai
+QDRANT_API_KEY=your_qdrant_api_key
+QDRANT_COLLECTION_NAME=sales_knowledge
+
+OPENAI_API_KEY=your_openai_api_key
+```
+
+**Initialize the knowledge base:**
 
 ```bash
-bl apply -R -f .blaxel
+npm run fill-knowledge-base
 ```
 
 ## 🔧 Usage
 
-### (Optional) Populating the Knowledge Base
+### Running Locally
 
-To populate the Qdrant knowledge base with documents:
-
-1. Place your documents in the `documents` folder. If you do not have any documents, you can use the sample documents provided in the `documents` folder.
-2. Run the following command to import the documents:
-   ```bash
-   npm run fill-knowledge-base
-   ```
-
-### Running the Server Locally
-
-Start the development server with hot reloading using the Blaxel CLI command:
+Start the development server with hot reloading:
 
 ```bash
-bl serve --hotreload
+npm run dev
 ```
 
-_Note:_ This command starts the server and enables hot reload so that changes to the source code are automatically reflected.
-
-### Test your agent
-
-Use Blaxel CLI to test your agent:
+For production build and run:
 
 ```bash
-bl chat template-sales-kpi-reporter
+# Build the TypeScript code
+npm run build
+
+# Run the compiled JavaScript
+npm run prod
 ```
 
-Example questions to try:
+_Note:_ The development server automatically restarts when you make changes to the source code.
 
-- How can I boost Amazon listings?
-- List my KPI on amazon sales
-- How can I improve my sales? List countries where my KPI should improve. Do this list in a table
+### Testing
 
-### Deploying to Blaxel
+You can test your sales KPI agent locally:
 
-When you are ready to deploy your application, run:
+```bash
+# Using the Blaxel CLI chat interface
+bl chat --local sales-kpi-agent
+
+# Or make direct HTTP requests
+curl -X POST http://localhost:8080/ \
+  -H "Content-Type: application/json" \
+  -H "thread-id: test-session-1" \
+  -d '{"inputs": "What are our top sales KPIs this quarter?"}'
+```
+
+Example queries you can ask:
+- "What are our current sales performance metrics?"
+- "Show me the best practices for Amazon listings"
+- "How can we improve our conversion rates?"
+- "What KPI data do we have in our S3 bucket?"
+
+### Deployment
+
+When you are ready to deploy your agent:
 
 ```bash
 bl deploy
 ```
 
-This command uses your code and the configuration files under the `.blaxel` directory to deploy your application.
-
-## 📖 API Reference
-
-The Sales KPI Reporter agent exposes the following endpoints:
-
-- **POST /agents/{agent_id}/run**: Run the agent with provided input
-  ```json
-  {
-    "input": "List my KPI on amazon sales",
-    "stream": true
-  }
-  ```
-
-- **GET /agents/{agent_id}/info**: Get information about the agent capabilities
-- **GET /health**: Health check endpoint
-
-For detailed API documentation, run the server and visit `/docs` endpoint.
+This command uses your code and the configuration in `blaxel.toml` to deploy your sales KPI reporter as an agent on the Blaxel platform.
 
 ## 📁 Project Structure
 
-- **src/**
-  - `index.ts` - Application entry point
-  - `agent.ts` - Configures the chat agent, streams HTTP responses, and integrates conversational context
-  - `knowledgebase.ts` - Establishes the connection and configuration for the Qdrant knowledge base
-  - `prompt.ts` - Contains the prompt definition used for the chat agent
-- **documents/** - Includes the sample documents to populate the knowledge base
-- **fillKnowledgeBase.ts** - Script to import document content into the knowledge base
-- **.blaxel/** - Contains configuration files for Blaxel functions and models
-- **tsconfig.json** - TypeScript compiler configuration
-- **package.json** - Lists dependencies and defines various project scripts
-- **blaxel.toml** - Blaxel deployment configuration
+- **src/index.ts** - Fastify server setup and main application entry point
+- **src/agent.ts** - Core LangGraph agent implementation with context handling
+- **src/knowledgebase.ts** - Qdrant vector database integration and search functionality
+- **src/prompt.ts** - System prompt configuration for the sales KPI assistant
+- **src/types.ts** - TypeScript type definitions
+- **src/embeddings.ts** - Text embedding functionality for vector search
+- **src/error.ts** - Error handling utilities
+- **documents/** - Sales best practices and guides for knowledge base
+- **fillKnowledgeBase.ts** - Script to populate Qdrant with document embeddings
+- **blaxel.toml** - Blaxel deployment configuration with AWS S3 and model settings
+- **package.json** - NPM package configuration with scripts and dependencies
 
-## 📝 Examples
-
-### Basic KPI Query
-
-```
-User: List my KPI on amazon sales
-Agent: Here are your current Amazon sales KPIs:
-
-| Metric | Value | Status |
-|--------|-------|--------|
-| Total Revenue | $1,245,689 | ▲ 12% |
-| Average Order Value | $42.37 | ▼ 3% |
-| Conversion Rate | 4.2% | ▲ 0.5% |
-| Return Rate | 8.7% | ▼ 1.2% |
-| Customer Satisfaction | 4.3/5 | ▲ 0.2 |
-| Inventory Turnover | 7.8x | ▲ 0.6x |
-
-Your strongest markets are:
-1. United States (47% of sales)
-2. United Kingdom (18% of sales)
-3. Germany (12% of sales)
-
-Would you like me to provide more detailed analysis on any particular metric?
-```
-
-### Sales Improvement Query
-
-```
-User: How can I improve my sales in Europe?
-Agent: Based on your current KPIs for European markets, here are targeted improvement opportunities:
-
-1. **Germany (12% of sales)**
-   - Improve product listing translations (current score: 82%)
-   - Expand selection in high-performance categories (home goods, electronics)
-   - Increase sponsored product ad budget by 15-20%
-
-2. **France (8% of sales)**
-   - Address higher-than-average return rates (currently 11.2%)
-   - Improve delivery times (currently averaging 4.2 days)
-   - Enhance customer support with French-speaking representatives
-
-3. **Italy (5% of sales)**
-   - Optimize for mobile shoppers (71% of Italian traffic comes from mobile)
-   - Adjust pricing strategy (current prices are 8% higher than local competitors)
-   - Increase inventory for seasonal products
-
-Would you like me to prepare a detailed action plan for any of these markets?
-```
-
-## ⚠️ Troubleshooting
+## ❓ Troubleshooting
 
 ### Common Issues
 
-1. **Environment Variable Problems**:
-   - Ensure all required environment variables are set in your `.env` file
-   - Check for typos in API keys and endpoints
+1. **Blaxel Platform Issues**:
+   - Ensure you're logged in to your workspace: `bl login MY-WORKSPACE`
+   - Verify models are available: `bl get models`
+   - Check that functions exist: `bl get functions`
 
-2. **AWS Connection Issues**:
-   - Verify your AWS credentials are correct
-   - Ensure your IAM user has the necessary permissions for S3 access
+2. **AWS S3 Connection Issues**:
+   - Verify AWS credentials are correctly set in environment variables
+   - Ensure the S3 bucket exists and is accessible
+   - Check IAM permissions for S3 bucket access
+   - Verify the AWS region is correct for your bucket
 
-3. **Qdrant Connection Problems**:
-   - Confirm your Qdrant URL and API key are correct
-   - Check that your collection exists or is being created properly
+3. **Qdrant Vector Database Issues**:
+   - Ensure Qdrant API key is valid and properly configured
+   - Verify the collection name exists in your Qdrant instance
+   - Check that embeddings are being generated correctly
+   - Run `npm run fill-knowledge-base` to populate the knowledge base
+   - Verify network connectivity to Qdrant endpoint
+
+4. **Dependency and Environment Issues**:
+   - Make sure you have Node.js 18+
+   - Try `npm install` to reinstall dependencies
+   - Check for TypeScript compilation errors with `npm run build`
+   - Verify all environment variables are properly set
 
 For more help, please [submit an issue](https://github.com/blaxel-templates/template-sales-kpi-reporter/issues) on GitHub.
 
-## 🤝 Contributing
+## 👥 Contributing
 
 Contributions are welcome! Here's how you can contribute:
 
@@ -279,15 +242,17 @@ Contributions are welcome! Here's how you can contribute:
    ```
 5. **Submit** a Pull Request
 
-Please make sure to update tests as appropriate and follow the code style of the project.
+Please make sure to update tests as appropriate and follow the TypeScript code style of the project.
 
-## 🛟 Support
+## 🆘 Support
 
 If you need help with this template:
 
 - [Submit an issue](https://github.com/blaxel-templates/template-sales-kpi-reporter/issues) for bug reports or feature requests
 - Visit the [Blaxel Documentation](https://docs.blaxel.ai) for platform guidance
-- Contact [Blaxel Support](https://blaxel.ai/contact) for additional assistance
+- Check the [LangGraph Documentation](https://langchain-ai.github.io/langgraph/) for framework-specific help
+- Review the [Qdrant Documentation](https://qdrant.tech/documentation/) for vector database guidance
+- Join our [Discord Community](https://discord.gg/G3NqzUPcHP) for real-time assistance
 
 ## 📄 License
 
