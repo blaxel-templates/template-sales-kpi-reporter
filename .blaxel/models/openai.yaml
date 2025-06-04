@@ -24,9 +24,9 @@ spec:
 apiVersion: blaxel.ai/v1alpha1
 kind: Model
 metadata:
-  displayName: text-embedding-3-large
+  displayName: embedding-model-openai
   environment: production
-  name: text-embedding-3-large
+  name: embedding-model-openai
 spec:
   enabled: true
   integrationConnections:

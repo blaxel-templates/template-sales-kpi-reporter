@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import { env } from "@blaxel/core";
 import { EmbeddingModel } from "./embeddings.js";
 
 type KnowledgebaseSearchResult = {
@@ -180,16 +179,17 @@ export class QdrantKnowledgebase {
 }
 
 export const getKnowledgebase = async () => {
+
   const connection = {
     config: {
-      url: env.QDRANT_URL,
+      url: process.env.QDRANT_URL,
     },
     secrets: {
-      apiKey: env.QDRANT_API_KEY,
+      apiKey: process.env.QDRANT_API_KEY,
     },
-    collectionName: env.QDRANT_COLLECTION_NAME || "knowledgebase",
-    embeddingModel: env.QDRANT_EMBEDDING_MODEL || "text-embedding-3-large",
-    embeddingModelType: env.QDRANT_EMBEDDING_MODEL_TYPE || "openai",
+    collectionName: process.env.QDRANT_COLLECTION_NAME || "knowledgebase",
+    embeddingModel: process.env.QDRANT_EMBEDDING_MODEL || "text-embedding-3-large",
+    embeddingModelType: process.env.QDRANT_EMBEDDING_MODEL_TYPE || "openai",
   };
   return await QdrantKnowledgebase.create({ connection });
 };
