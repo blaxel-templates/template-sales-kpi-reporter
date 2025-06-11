@@ -142,8 +142,7 @@ export const agent = async (
   // Retrieve available functions for the agent.
   const tools = await blTools(["aws-s3"]);
 
-  // Load the chat model (e.g., "gpt-4o-mini").
-  const llm = await blModel("gpt-4o-mini");
+  const llm = await blModel("sandbox-openai");
 
   // Initialize the knowledgebase for context retrieval.
   const knowledgebase = await getKnowledgebase();

@@ -10,20 +10,6 @@ spec:
 apiVersion: blaxel.ai/v1alpha1
 kind: Model
 metadata:
-  displayName: gpt-4o-mini
-  environment: production
-  name: gpt-4o-mini
-spec:
-  enabled: true
-  integrationConnections:
-    - openai
-  runtime:
-    model: gpt-4o-mini
-    type: openai
----
-apiVersion: blaxel.ai/v1alpha1
-kind: Model
-metadata:
   displayName: embedding-model-openai
   environment: production
   name: embedding-model-openai
