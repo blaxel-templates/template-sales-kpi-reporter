@@ -188,7 +188,7 @@ export const getKnowledgebase = async () => {
       apiKey: process.env.QDRANT_API_KEY,
     },
     collectionName: process.env.QDRANT_COLLECTION_NAME || "knowledgebase",
-    embeddingModel: process.env.QDRANT_EMBEDDING_MODEL || "text-embedding-3-large",
+    embeddingModel: process.env.QDRANT_EMBEDDING_MODEL || "embedding-model-openai",
     embeddingModelType: process.env.QDRANT_EMBEDDING_MODEL_TYPE || "openai",
   };
   return await QdrantKnowledgebase.create({ connection });
