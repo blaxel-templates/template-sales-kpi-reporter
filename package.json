@@ -14,9 +14,9 @@
   "author": "cploujoux",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/core": "0.2.23",
-    "@blaxel/langgraph": "0.2.23",
-    "@blaxel/telemetry": "0.2.23",
+    "@blaxel/core": "0.2.25",
+    "@blaxel/langgraph": "0.2.25",
+    "@blaxel/telemetry": "0.2.25",
     "@langchain/core": "^0.3.51",
     "@langchain/langgraph": "^0.2.68",
     "@qdrant/js-client-rest": "^1.14.0",
