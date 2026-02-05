@@ -22,11 +22,22 @@ async function main() {
 
   app.post<{ Body: RequestBody }>("/", async (request, reply) => {
     try {
+      // Set headers to disable proxy/CDN buffering (CloudFront, nginx, etc.)
+      reply.raw.writeHead(200, {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Cache-Control": "no-cache, no-transform",
+        "X-Accel-Buffering": "no",
+        "Connection": "keep-alive",
+      });
       const thread_id = (request.headers["thread-id"] as string) || uuidv4();
       await agent(thread_id, request.body.inputs, reply.raw);
     } catch (error: any) {
       console.error(error);
-      return reply.status(500).send(error.stack);
+      if (!reply.raw.headersSent) {
+        return reply.status(500).send(error.stack);
+      }
+      reply.raw.end(`\n❌ Error: ${error.stack}`);
     }
   });
   const port = parseInt(env.PORT || "80");

@@ -147,7 +147,7 @@ export const agent = async (
   // Initialize the knowledgebase for context retrieval.
   const knowledgebase = await getKnowledgebase();
 
-  const agent = createReactAgent({
+  const graph = createReactAgent({
     llm,
     tools,
     checkpointSaver: new MemorySaver(),
@@ -159,15 +159,23 @@ export const agent = async (
       return await handleContext(state, config, knowledgebase);
     },
   });
-  const streamResponse = await agent.stream(
+
+  const streamResponse = graph.streamEvents(
     { messages: [new HumanMessage(input)] },
-    { configurable: { thread_id } }
+    { configurable: { thread_id }, version: "v2" }
   );
-  for await (const chunk of streamResponse) {
-    if (chunk.agent)
-      for (const message of chunk.agent.messages) {
-        stream.write(message.content);
+
+  for await (const event of streamResponse) {
+    if (event.event === "on_chat_model_stream") {
+      const chunk = event.data.chunk;
+      if (chunk && chunk.content) {
+        const content = typeof chunk.content === "string" ? chunk.content : String(chunk.content);
+        if (content && (!chunk.tool_call_chunks || chunk.tool_call_chunks.length === 0)) {
+          stream.write(content);
+        }
       }
+    }
   }
+
   stream.end();
 };
